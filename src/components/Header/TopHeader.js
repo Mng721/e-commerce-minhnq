@@ -11,10 +11,9 @@ const TopHeader = () => {
         {text}
         <a className="shop-link">ShopNow</a>
       </div>
-      <DropdownButton
-        id="dropdown-basic-button"
-        title="English"
-      ></DropdownButton>
+      <DropdownButton id="dropdown-basic-button" title="English">
+        <Dropdown.Item>Vietnamese</Dropdown.Item>
+      </DropdownButton>
     </div>
   );
 };

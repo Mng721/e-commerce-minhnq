@@ -1,12 +1,61 @@
-.cart-container
+.cart-item-container
     background-color: #fff
     border-radius: 5px
-    .new-item
-        background-color: #00ff66
-        color: "white"
-    .sale-item
-        background-color: #db4444
-        color: "white"
-    img
-        width: 300px
-        height: 300px
+    width: 260px
+    height: auto
+    display: flex
+    gap: 4px
+    flex-direction: column
+    position: relative
+    .img-container
+        position: relative
+        width: fit-content
+        border-radius: 4px
+        background-color: #e6e6e6
+        .item-tag
+            position: absolute
+            color: #fff
+            border-radius: 5px
+            text-align: center
+            width: fit-content
+            padding: 4px 12px
+            top: 12px
+            left: 12px
+        .new-item
+            background-color: #00ff66
+
+        .sale-item
+            background-color: #db4444
+
+        img
+            width: 260px
+            height: 260px
+
+    .item-name
+        width: 260px
+        font-weight: 500
+        font-size: 20px
+        display: inline-block
+        overflow: hidden
+        text-overflow: ellipsis
+        white-space: nowrap
+
+    .price-container
+        display: flex
+        flex-direction: row
+        font-weight: 500
+        .sale-price
+            color: #db4444
+        .price
+            margin-left: 0.5rem
+            text-decoration: line-through
+            color: #808080
+    .review
+
+        display: flex
+        flex-direction: row
+        align-items: center
+        .review-number
+            margin-left: 1rem
+            font-weight: 500
+            color: #808080
