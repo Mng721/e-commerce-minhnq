@@ -2,17 +2,26 @@ import { MdAccountCircle } from "react-icons/md";
 import "../../App.sass";
 import { IoCartOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
-import { NavLink, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
+import { Link, NavLink } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { useState } from "react";
+import DropDownContent from "./DropDownContent";
 
 const HeaderNavbar = () => {
+  const [open, setOpen] = useState();
+  const handleToggleDropdown = () => {
+    setOpen(!open);
+  };
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container fluid>
-          <Navbar.Brand href="#">Exclusive</Navbar.Brand>
+          <Link to={"/"} className="navbar-brand">
+            Exclusive
+          </Link>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -20,34 +29,40 @@ const HeaderNavbar = () => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <NavLink to="/">
+              <NavLink to={"/"} className="nav-link">
                 <div>Home</div>
               </NavLink>
-              <NavLink to="/contact">
+              <NavLink to={"/contact"} className="nav-link">
                 <div>Contact</div>
               </NavLink>
-              <NavLink to="/">
+              <NavLink to={"/about"} className="nav-link">
                 <div>About</div>
               </NavLink>
-              <NavLink to="/">
+              <NavLink to={"/signin"} className="nav-link">
                 <div>Sign in</div>
               </NavLink>
             </Nav>
             <Form className="d-flex">
               <Form.Control
                 type="search"
-                placeholder="Search"
+                placeholder="What are you loking for?"
                 className="me-2"
                 aria-label="Search"
               />
 
-              <CiHeart size={"3em"} className="icon heart-icon" />
-              <IoCartOutline size={"3em"} className="icon cart-icon" />
-              <MdAccountCircle
-                size={"3em"}
-                color="red"
-                className="icon account-icon"
-              />
+              <CiHeart size={"2em"} className="icon heart-icon" />
+              <IoCartOutline size={"2em"} className="icon cart-icon" />
+              <div className="drop-down">
+                <MdAccountCircle
+                  size={"2em"}
+                  color="red"
+                  className="icon account-icon"
+                  onClick={() => {
+                    handleToggleDropdown();
+                  }}
+                />
+                <DropDownContent open={open} />
+              </div>
             </Form>
           </Navbar.Collapse>
         </Container>
