@@ -1,7 +1,8 @@
 import React from "react";
 import "./sale-timer.sass";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import ViewAllProduct from "../button/ViewAllProduct";
+import ArrowLeft from "../arrows/ArrowLeft";
+import ArrowRight from "../arrows/ArrowRight";
 const SaleTimer = (props) => {
   const [days, setDays] = React.useState(0);
   const [hours, setHours] = React.useState(0);
@@ -68,12 +69,8 @@ const SaleTimer = (props) => {
       </div>
       {!buttonText ? (
         <div className="right-container">
-          <div className="arrow-icon arrow-icon-back">
-            <FaArrowLeft size={"2em"} />
-          </div>
-          <div className="arrow-icon arrow-icon-foward">
-            <FaArrowRight size={"2em"} />
-          </div>
+          <ArrowLeft />
+          <ArrowRight />
         </div>
       ) : (
         <div className="right-container">

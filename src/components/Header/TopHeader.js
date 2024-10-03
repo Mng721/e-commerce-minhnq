@@ -1,6 +1,7 @@
 import React from "react";
 import "./header.sass";
 import { DropdownButton, Dropdown } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const TopHeader = () => {
   const text =
@@ -9,7 +10,7 @@ const TopHeader = () => {
     <div className="top-header">
       <div className="text-promotion" style={{ textTransform: "capitalize" }}>
         {text}
-        <a className="shop-link">ShopNow</a>
+        <Link className="shop-link">ShopNow</Link>
       </div>
       <DropdownButton id="dropdown-basic-button" title="English">
         <Dropdown.Item>Vietnamese</Dropdown.Item>

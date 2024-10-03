@@ -14,7 +14,7 @@ const Cart = () => {
   const [reviewCount, setReviewCount] = useState("");
   const [image, setImage] = useState("");
   return (
-    <div className="cart-item-container">
+    <div className="cart-item-container mx-auto">
       <div className="img-container">
         <img src={imgPng} alt="product-image"></img>
         {newItem && <div className="new-item item-tag">New</div>}
