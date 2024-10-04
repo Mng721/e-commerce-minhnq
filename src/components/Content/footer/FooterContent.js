@@ -7,6 +7,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { LuTwitter } from "react-icons/lu";
 import { FaInstagram } from "react-icons/fa";
 import { ImLinkedin2 } from "react-icons/im";
+import { Link } from "react-router-dom";
 const FooterContent = () => {
   return (
     <>
@@ -40,7 +41,10 @@ const FooterContent = () => {
         </div>
         <div className="forth-column">
           <h4 className="text-light pb-2">Quick link</h4>
-          <p className="text-light">Privacy policy</p>
+          <p className="text-light">
+            Privacy policy
+            <Link to={"/"} />
+          </p>
           <p className="text-light">Term Of Use</p>
           <p className="text-light">FAQ</p>
           <p className="text-light">Contact</p>

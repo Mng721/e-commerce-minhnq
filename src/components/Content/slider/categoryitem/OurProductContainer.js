@@ -16,13 +16,16 @@ const OurProductContainer = () => {
   return (
     <>
       <ContentTitle text={"Our Products"} />
-      <SaleTimer title={"Explore our products"} rightContent={true} />
+      <SaleTimer
+        title={"Explore our products"}
+        rightContent={true}
+        btnPre={handlePreviousSlide}
+        btnNext={handleNextSlide}
+      />
 
       <div className="list-our-product">
         <OurProductsSlider ref={ourProductRef} />
       </div>
-      <Button onClick={() => handlePreviousSlide()}>previous</Button>
-      <Button onClick={() => handleNextSlide()}>next</Button>
     </>
   );
 };

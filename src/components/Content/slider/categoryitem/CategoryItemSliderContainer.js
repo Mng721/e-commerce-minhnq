@@ -61,16 +61,17 @@ const CategoryItemSliderContainer = () => {
   return (
     <>
       <ContentTitle text={"Categoty"} className="category-title" />
-      <SaleTimer title={"Browse By Category"} rightContent={true} />
+      <SaleTimer
+        title={"Browse By Category"}
+        rightContent={true}
+        btnPre={handlePreviousSlide}
+        btnNext={handleNextSlide}
+      />
       <div className="list-category-item">
         <CategoryItemSlider
           listCategoryItem={listCategoryItem}
           ref={categorySliderRef}
-          btnPre={handlePreviousSlide}
-          btnNext={handleNextSlide}
         />
-        <Button onClick={() => handlePreviousSlide()}>click previous</Button>
-        <Button onClick={() => handleNextSlide()}>click next</Button>
       </div>
     </>
   );
