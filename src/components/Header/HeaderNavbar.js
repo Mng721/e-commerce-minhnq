@@ -1,5 +1,5 @@
 import { MdAccountCircle } from "react-icons/md";
-import "../../App.sass";
+import "./header.sass";
 import { IoCartOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
 import { Form } from "react-bootstrap";

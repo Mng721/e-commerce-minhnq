@@ -1,9 +1,9 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import Cart from "../cart/Cart";
 import Slider from "react-slick";
 import "./slider.sass";
 
-const SalesSlider = () => {
+const SalesSlider = forwardRef((props, ref) => {
   const settings = {
     dots: false,
     infinite: false,
@@ -14,26 +14,45 @@ const SalesSlider = () => {
   };
   return (
     <div className="sales-slider-container">
-      <Slider {...settings}>
-        <Cart />
-        <Cart />
-        <Cart />
-        <Cart />
-        <Cart />
-        <Cart />
-        <Cart />
-        <Cart />
-        <Cart />
-        <Cart />
-        <Cart />
-        <Cart />
-        <Cart />
-        <Cart />
-        <Cart />
-        <Cart />
+      <Slider {...settings} ref={ref}>
+        <div>
+          <Cart />
+        </div>
+        <div>
+          <Cart />
+        </div>
+        <div>
+          <Cart />
+        </div>
+        <div>
+          <Cart />
+        </div>
+        <div>
+          <Cart />
+        </div>
+        <div>
+          <Cart />
+        </div>
+        <div>
+          <Cart />
+        </div>
+        <div>
+          <Cart />
+        </div>
+        <div>
+          <Cart />
+        </div>
+        <div>
+          <Cart />
+        </div>
+        <div>
+          <Cart />
+        </div>
+        <div>
+          <Cart />
+        </div>
       </Slider>
     </div>
   );
-};
-
+});
 export default SalesSlider;

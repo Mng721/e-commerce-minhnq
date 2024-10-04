@@ -1,5 +1,5 @@
 import React from "react";
-import "../../App.sass";
+import "./header.sass";
 
 const DropDownItem = (props) => {
   const { item } = props;

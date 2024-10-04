@@ -9,7 +9,7 @@ const SaleTimer = (props) => {
   const [minutes, setMinutes] = React.useState(0);
   const [seconds, setSeconds] = React.useState(0);
 
-  const { deadline, title, buttonText } = props;
+  const { deadline, title, buttonText, rightContent, btnPre, btnNext } = props;
 
   const getTime = () => {
     const time = Date.parse(deadline) - Date.now();
@@ -22,10 +22,28 @@ const SaleTimer = (props) => {
 
   React.useEffect(() => {
     const interval = setInterval(() => getTime(deadline), 1000);
+    console.log(props);
 
     return () => clearInterval(interval);
   }, []);
 
+  let rightContentContainer;
+  if (rightContent && buttonText) {
+    rightContentContainer = <ViewAllProduct text={buttonText} />;
+  } else if (rightContent && !buttonText) {
+    rightContentContainer = (
+      <>
+        <div onClick={btnPre}>
+          <ArrowLeft />
+        </div>
+        <div onClick={btnNext}>
+          <ArrowRight />
+        </div>
+      </>
+    );
+  } else if (!rightContent) {
+    <></>;
+  }
   return (
     <div className="timer-container">
       <div className="left-container">
@@ -67,16 +85,7 @@ const SaleTimer = (props) => {
           </div>
         )}
       </div>
-      {!buttonText ? (
-        <div className="right-container">
-          <ArrowLeft />
-          <ArrowRight />
-        </div>
-      ) : (
-        <div className="right-container">
-          <ViewAllProduct text={buttonText} />
-        </div>
-      )}
+      <div className="right-container">{rightContentContainer}</div>
     </div>
   );
 };

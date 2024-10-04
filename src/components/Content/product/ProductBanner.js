@@ -12,7 +12,7 @@ const ProductBanner = () => {
       <Timer />
       <Button className="product-banner-button">Buy now!</Button>
 
-      <img src={productImage}></img>
+      <img src={productImage} alt="product-img"></img>
     </div>
   );
 };

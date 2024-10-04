@@ -1,5 +1,5 @@
 import React from "react";
-import "../../App.sass";
+import "./header.sass";
 import { FiUser } from "react-icons/fi";
 import DropDownItem from "./DropDownItem";
 import { TiShoppingBag } from "react-icons/ti";
@@ -33,8 +33,8 @@ const DropDownContent = (props) => {
   ];
   return (
     <div className={`drop-down-content ${open ? "drop-down-open" : null}`}>
-      {listDropdown.map((item) => {
-        return <DropDownItem item={item} />;
+      {listDropdown.map((item, index) => {
+        return <DropDownItem item={item} key={`dropdown-${index}`} />;
       })}
     </div>
   );
