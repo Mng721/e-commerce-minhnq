@@ -8,10 +8,10 @@ const BestSellingSlider = () => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 6,
+    slidesToShow: 5,
     swipeToSlide: true,
     arrows: false,
-    variableWidth: true,
+    // variableWidth: true,
   };
   return (
     <div className="best-selling-slider-container">

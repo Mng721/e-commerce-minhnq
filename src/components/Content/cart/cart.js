@@ -3,12 +3,16 @@ import "./cart.sass";
 import { Rating } from "@mui/material";
 import { MdFavoriteBorder } from "react-icons/md";
 import { IoEyeOutline } from "react-icons/io5";
-const Cart = () => {
-  const newItem = false;
-  const sale = "35";
-  const color = "";
-  const price = "160$";
-  const salePrice = "120$";
+// import { useState } from "react";
+const Cart = ({
+  sale,
+  newItem,
+  listColor,
+  rating = 4.5,
+  price = "160$",
+  salePrice = "120$",
+}) => {
+  // const [color, setColor] = useState(listColor ? listColor[0] : "");
   return (
     <div className="cart-item-container mx-auto">
       <div className="img-container">
@@ -37,7 +41,7 @@ const Cart = () => {
           <div className="review-star d-flex flex-row align-item-center">
             <Rating
               name="half-rating-read"
-              defaultValue={2.5}
+              defaultValue={rating}
               precision={0.5}
               readOnly
             />
@@ -52,14 +56,26 @@ const Cart = () => {
             <div className="review-star">
               <Rating
                 name="half-rating-read"
-                defaultValue={2.5}
+                defaultValue={rating}
                 precision={0.5}
                 readOnly
               />
             </div>
             <div className="review-number">(88)</div>
           </div>
-          {color && <div></div>}
+          {listColor && (
+            <div className="d-flex flex-row gap-2 color-picker-container align-item-center px-2">
+              {listColor.map((color, index) => {
+                return (
+                  <div
+                    className={`color-pick color-${index + 1}`}
+                    key={`color-picker-${index + 1}`}
+                    style={{ backgroundColor: `${color}` }}
+                  ></div>
+                );
+              })}
+            </div>
+          )}
         </div>
       )}
     </div>

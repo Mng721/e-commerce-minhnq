@@ -8,7 +8,8 @@ import ContactPage from "./components/Content/ContactPage";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AboutPage from "./components/Content/AboutPage";
-import SignInPage from "./components/page/SignInPage";
+import SignInPage from "./components/page/signin/SignInPage";
+import RegisterPage from "./components/page/register/RegisterPage";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
   {
     path: "/signin",
     element: <SignInPage />,
+  },
+
+  {
+    path: "/signup",
+    element: <RegisterPage />,
   },
 ]);
 

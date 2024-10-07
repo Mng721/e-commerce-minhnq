@@ -1,0 +1,119 @@
+.signup-container
+    width: 500px
+    height: auto
+    margin: 20px auto 0
+    padding: 20px
+    border: 1px solid #ccc
+    border-radius: 8px
+    box-shadow: 0 6px 10px 0px #888888
+    h1
+        text-align: center
+    p
+        font-size: 16px
+        text-align: center
+
+        a
+            text-decoration: none
+            color: #d97706
+            font-weight: 600
+            &:hover
+                color: #d4a671
+
+.btn-login
+    margin: 1.5rem 0 0.5rem
+    border-radius: 50px
+    background-color: #2f22f2
+    --bs-btn-active-bg: #6157eb
+    --bs-btn-hover-bg: #3930b4
+.btn-login-with
+    margin: 8px 0
+    border-radius: 50px
+    background-color: #ffffff00
+    color: #ccc
+    border: 1px solid #ccc
+    --bs-btn-active-bg: #ffffff
+    --bs-btn-hover-bg: #ffffff
+    --bs-btn-active-color: #000000
+    --bs-btn-hover-color: #ccc
+.separator
+    display: flex
+    align-items: center
+    text-align: center
+    margin: 0 10px
+    color: #888888
+
+.separator::before,
+.separator::after
+    content: ''
+    flex: 1
+    border-bottom: 1px solid #ccc
+
+.separator:not(:empty)::before
+    margin-right: 1em
+
+.separator:not(:empty)::after
+    margin-left: 1em
+.show-hide-password
+    min-width: 55px !important
+    cursor: pointer
+.login-text
+    width: fit-content
+    font-size: medium
+    font-weight: 500
+    margin-bottom: 20px
+    .link-to-register
+        font-weight: 550
+        text-decoration: none
+.form-group
+    label
+        color: #000
+        font-weight: 500
+        margin-top: 16px
+.login-with-facebook
+
+    margin: 1.5rem 0 0.5rem
+    border-radius: 50px
+    padding: 16px
+    text-align: center
+    color: #fff
+    background-color: #4267b2
+    position: relative
+    cursor: pointer
+    &:hover
+        filter: brightness(1.2)
+    &:active
+        background-color: #3156a1
+
+    .icon-container
+        padding-top: 2px
+        position: absolute
+        background-color: #fff
+        height: 2rem
+        width: 2rem
+        border-radius: 50%
+
+        top: 50%
+        -ms-transform: translateY(-50%)
+        transform: translateY(-50%)
+        left: 4%
+.login-with-google
+    margin: 0 0 0.5rem
+    border-radius: 50px
+    padding: 16px
+    text-align: center
+    color: #000000
+    background-color: #ffffff
+    border: solid 1px #ccc
+    position: relative
+    cursor: pointer
+    .icon-container
+        padding-top: 2px
+        position: absolute
+        background-color: #fff
+        height: 2rem
+        width: 2rem
+        border-radius: 50%
+        top: 50%
+        -ms-transform: translateY(-50%)
+        transform: translateY(-50%)
+        left: 4%

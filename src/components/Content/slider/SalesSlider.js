@@ -16,40 +16,40 @@ const SalesSlider = forwardRef((props, ref) => {
     <div className="sales-slider-container">
       <Slider {...settings} ref={ref}>
         <div>
-          <Cart />
+          <Cart sale="30" />
         </div>
         <div>
-          <Cart />
+          <Cart sale="25" />
         </div>
         <div>
-          <Cart />
+          <Cart sale="25" />
         </div>
         <div>
-          <Cart />
+          <Cart sale="20" />
         </div>
         <div>
-          <Cart />
+          <Cart sale="20" />
         </div>
         <div>
-          <Cart />
+          <Cart sale="50" />
         </div>
         <div>
-          <Cart />
+          <Cart sale="50" />
         </div>
         <div>
-          <Cart />
+          <Cart sale="50" />
         </div>
         <div>
-          <Cart />
+          <Cart sale="50" />
         </div>
         <div>
-          <Cart />
+          <Cart sale="40" />
         </div>
         <div>
-          <Cart />
+          <Cart sale="40" rating={3} />
         </div>
         <div>
-          <Cart />
+          <Cart sale="40" rating={3.5} />
         </div>
       </Slider>
     </div>

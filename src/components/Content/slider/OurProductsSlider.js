@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import "./slider.sass";
 
 const OurProductsSlider = forwardRef((props, ref) => {
+  const listColor = ["#000", "#ccc"];
   const settings = {
     className: "center",
     infinite: true,
@@ -31,52 +32,52 @@ const OurProductsSlider = forwardRef((props, ref) => {
           <Cart />
         </div>
         <div>
-          <Cart />
+          <Cart sale={"20"} />
+        </div>
+        <div>
+          <Cart newItem={true} />
         </div>
         <div>
           <Cart />
         </div>
         <div>
-          <Cart />
+          <Cart sale={"50"} />
+        </div>
+        <div>
+          <Cart listColor={["#cf639e", "#6b63cf", "#3c3a5a"]} />
         </div>
         <div>
           <Cart />
         </div>
         <div>
-          <Cart />
+          <Cart newItem={true} />
+        </div>
+        <div>
+          <Cart newItem={true} />
+        </div>
+        <div>
+          <Cart listColor={listColor} />
+        </div>
+        <div>
+          <Cart listColor={["#7dcf63", "#cfb063", "#b363cf"]} />
+        </div>
+        <div>
+          <Cart newItem={true} />
         </div>
         <div>
           <Cart />
         </div>
         <div>
-          <Cart />
+          <Cart listColor={["#3a5a3a", "#a9bba9", "#aec251"]} />
+        </div>
+        <div>
+          <Cart sale={"40"} />
         </div>
         <div>
           <Cart />
         </div>
         <div>
-          <Cart />
-        </div>
-        <div>
-          <Cart />
-        </div>
-        <div>
-          <Cart />
-        </div>
-        <div>
-          <Cart />
-        </div>
-        <div>
-          <Cart />
-        </div>
-        <div>
-          <Cart />
-        </div>
-        <div>
-          <Cart />
-        </div>
-        <div>
-          <Cart />
+          <Cart newItem={true} />
         </div>
       </Slider>
     </div>

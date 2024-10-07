@@ -18,7 +18,7 @@ const FooterContent = () => {
           <p className="text-light">Get 10% of your first order</p>
           <input
             type="email"
-            class="form-control bg-dark text-white"
+            className="form-control bg-dark text-white"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
             placeholder="Enter your email"
