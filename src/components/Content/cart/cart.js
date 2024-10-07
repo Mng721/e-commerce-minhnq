@@ -63,19 +63,19 @@ const Cart = ({
             </div>
             <div className="review-number">(88)</div>
           </div>
-          {listColor && (
-            <div className="d-flex flex-row gap-2 color-picker-container align-item-center px-2">
-              {listColor.map((color, index) => {
-                return (
-                  <div
-                    className={`color-pick color-${index + 1}`}
-                    key={`color-picker-${index + 1}`}
-                    style={{ backgroundColor: `${color}` }}
-                  ></div>
-                );
-              })}
-            </div>
-          )}
+        </div>
+      )}
+      {listColor && (
+        <div className="d-flex flex-row gap-2 color-picker-container align-item-center px-2">
+          {listColor.map((color, index) => {
+            return (
+              <div
+                className={`color-pick color-${index + 1}`}
+                key={`color-picker-${index + 1}`}
+                style={{ backgroundColor: `${color}` }}
+              ></div>
+            );
+          })}
         </div>
       )}
     </div>

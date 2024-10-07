@@ -59,7 +59,7 @@ const OurProductsSlider = forwardRef((props, ref) => {
           <Cart listColor={listColor} />
         </div>
         <div>
-          <Cart listColor={["#7dcf63", "#cfb063", "#b363cf"]} />
+          <Cart listColor={["#7dcf63", "#cfb063", "#b363cf"]} newItem={true} />
         </div>
         <div>
           <Cart newItem={true} />
@@ -71,7 +71,10 @@ const OurProductsSlider = forwardRef((props, ref) => {
           <Cart listColor={["#3a5a3a", "#a9bba9", "#aec251"]} />
         </div>
         <div>
-          <Cart sale={"40"} />
+          <Cart
+            sale={"40"}
+            listColor={["#54c251", "#51bbc2", "#62638d", "#a74d88"]}
+          />
         </div>
         <div>
           <Cart />
