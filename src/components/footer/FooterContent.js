@@ -1,7 +1,7 @@
 import React from "react";
-import qrCode from "../../../assets/footer/qr.png";
-import appStoreImg from "../../../assets/footer/app-store.png";
-import chPlayImg from "../../../assets/footer/google-play.png";
+import qrCode from "../../assets/footer/qr.png";
+import appStoreImg from "../../assets/footer/app-store.png";
+import chPlayImg from "../../assets/footer/google-play.png";
 import "./footer.sass";
 import { FaFacebookF } from "react-icons/fa";
 import { LuTwitter } from "react-icons/lu";
@@ -18,10 +18,10 @@ const FooterContent = () => {
           <p className="text-light">Get 10% of your first order</p>
           <input
             type="email"
-            className="form-control"
+            class="form-control bg-dark text-white"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
-            placeholder="Enter email"
+            placeholder="Enter your email"
           />
         </div>
         <div className="second-column">
@@ -52,11 +52,11 @@ const FooterContent = () => {
         <div className="fifth-column">
           <h4 className="text-light pb-2">Download App</h4>
           <p>Save 3$ with App New User Only</p>
-          <div className="img-info-container d-flex flex-row row">
-            <div className="qr-code-img col-6">
+          <div className="img-info-container d-flex flex-row ">
+            <div className="qr-code-img">
               <img src={qrCode} alt="qr-code" />
             </div>
-            <div className="appstore-chplay-code-img col-6">
+            <div className="appstore-chplay-code-img d-flex flex-column">
               <div className="appstore-img-container">
                 <img src={appStoreImg} alt="appstore-img" />
               </div>
@@ -64,19 +64,20 @@ const FooterContent = () => {
                 <img src={chPlayImg} alt="chplay-img" />
               </div>
             </div>
-            <div className="information-icon-container d-flex flex-row gap-4 mt-3">
-              <div className="information-icon facebook-icon">
-                <FaFacebookF color="white" size={"1.5rem"} />
-              </div>
-              <div className="information-icon twitter-icon ">
-                <LuTwitter color="white" size={"1.5rem"} />
-              </div>
-              <div className="information-icon instagram-icon">
-                <FaInstagram color="white" size={"1.5rem"} />
-              </div>
-              <div className="information-icon linkedin-icon">
-                <ImLinkedin2 color="white" size={"1.5rem"} />
-              </div>
+          </div>
+
+          <div className="information-icon-container d-flex flex-row gap-4 mt-3">
+            <div className="information-icon facebook-icon">
+              <FaFacebookF color="white" size={"1.5rem"} />
+            </div>
+            <div className="information-icon twitter-icon ">
+              <LuTwitter color="white" size={"1.5rem"} />
+            </div>
+            <div className="information-icon instagram-icon">
+              <FaInstagram color="white" size={"1.5rem"} />
+            </div>
+            <div className="information-icon linkedin-icon">
+              <ImLinkedin2 color="white" size={"1.5rem"} />
             </div>
           </div>
         </div>

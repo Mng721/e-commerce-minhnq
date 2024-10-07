@@ -1,0 +1,60 @@
+.signin-container
+    width: 500px
+    height: auto
+    margin: auto
+    padding: 20px
+    border: 1px solid #ccc
+    border-radius: 8px
+    box-shadow: 0 6px 10px 0px #888888
+
+.forgot-password-link
+    text-decoration: none
+    font-weight: 550
+
+.btn-login
+    margin: 8px 0
+    border-radius: 50px
+    background-color: #2f22f2
+    --bs-btn-active-bg: #6157eb
+    --bs-btn-hover-bg: #3930b4
+.btn-login-with
+    margin: 8px 0
+    border-radius: 50px
+    background-color: #ffffff00
+    color: #000000
+    border: 1px solid #ccc
+    --bs-btn-active-bg: #ffffff
+    --bs-btn-hover-bg: #ffffff
+    &:hover
+        color: #000000
+    &:active
+        color: #000000
+
+.separator
+    display: flex
+    align-items: center
+    text-align: center
+    margin: 0 10px
+    color: #888888
+
+.separator::before,
+.separator::after
+    content: ''
+    flex: 1
+    border-bottom: 1px solid #ccc
+
+.separator:not(:empty)::before
+    margin-right: 1em
+
+.separator:not(:empty)::after
+    margin-left: 1em
+.show-hide-password
+    min-width: 55px !important
+.register-text
+    width: fit-content
+    margin-top: 40px
+    font-size: larger
+    font-weight: 500
+    .link-to-register
+        font-weight: 550
+        text-decoration: none

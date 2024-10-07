@@ -1,8 +1,8 @@
 import React from "react";
 import "./sale-timer.sass";
-import ViewAllProduct from "../button/ViewAllProduct";
-import ArrowLeft from "../arrows/ArrowLeft";
-import ArrowRight from "../arrows/ArrowRight";
+import ViewAllProduct from "../../button/ViewAllProduct";
+import ArrowLeft from "../../arrows/ArrowLeft";
+import ArrowRight from "../../arrows/ArrowRight";
 const SaleTimer = (props) => {
   const [days, setDays] = React.useState(0);
   const [hours, setHours] = React.useState(0);
@@ -22,7 +22,6 @@ const SaleTimer = (props) => {
 
   React.useEffect(() => {
     const interval = setInterval(() => getTime(deadline), 1000);
-    console.log(props);
 
     return () => clearInterval(interval);
   }, []);

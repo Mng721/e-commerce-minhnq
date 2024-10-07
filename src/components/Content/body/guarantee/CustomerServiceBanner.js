@@ -1,5 +1,5 @@
 import React from "react";
-import pngCustomerService from "../../../assets/guarantee/customer-service.png";
+import pngCustomerService from "../../../../assets/guarantee/customer-service.png";
 import "./guarantee.sass";
 
 const CustomerServiceBanner = () => {

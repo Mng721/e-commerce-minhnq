@@ -1,8 +1,8 @@
 import { MdAccountCircle } from "react-icons/md";
 import "./header.sass";
-import { IoCartOutline } from "react-icons/io5";
+import { IoCartOutline, IoSearch } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
-import { Form } from "react-bootstrap";
+import { Form, InputGroup } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -43,12 +43,18 @@ const HeaderNavbar = () => {
               </NavLink>
             </Nav>
             <Form className="d-flex">
-              <Form.Control
-                type="search"
-                placeholder="What are you loking for?"
-                className="me-2"
-                aria-label="Search"
-              />
+              <InputGroup>
+                <InputGroup.Text>
+                  <IoSearch />
+                </InputGroup.Text>
+
+                <Form.Control
+                  type="search"
+                  placeholder="What are you loking for?"
+                  className="me-2"
+                  aria-label="Search"
+                />
+              </InputGroup>
 
               <CiHeart size={"2em"} className="icon heart-icon" />
               <IoCartOutline size={"2em"} className="icon cart-icon" />

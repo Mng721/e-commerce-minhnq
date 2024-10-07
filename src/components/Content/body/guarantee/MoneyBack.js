@@ -1,5 +1,5 @@
 import React from "react";
-import pngMoneyBack from "../../../assets/guarantee/safe.png";
+import pngMoneyBack from "../../../../assets/guarantee/safe.png";
 import "./guarantee.sass";
 
 const MoneyBack = () => {

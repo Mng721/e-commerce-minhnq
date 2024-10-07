@@ -7,10 +7,9 @@ import { SiYoutubegaming } from "react-icons/si";
 import { FiHeadphones } from "react-icons/fi";
 import CategoryItemSlider from "../CategoryItemSlider";
 import { useRef } from "react";
-import ContentTitle from "../../content-title/ContentTitle";
-import SaleTimer from "../../sale-timer/SaleTimer";
+import ContentTitle from "../../body/content-title/ContentTitle";
+import SaleTimer from "../../body/sale-timer/SaleTimer";
 import "../../content.sass";
-import { Button } from "react-bootstrap";
 
 const CategoryItemSliderContainer = () => {
   let categorySliderRef = useRef();

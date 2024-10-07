@@ -1,5 +1,5 @@
 import React from "react";
-import pngDelivery from "../../../assets/guarantee/delivery.png";
+import pngDelivery from "../../../../assets/guarantee/delivery.png";
 import "./guarantee.sass";
 
 const GuaranteeBanner = () => {

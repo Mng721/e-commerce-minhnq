@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import CategoryItem from "../category/CategoryItem";
+import CategoryItem from "../body/category/CategoryItem";
 import Slider from "react-slick";
 
 import "./slider.sass";

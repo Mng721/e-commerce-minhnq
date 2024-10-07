@@ -1,4 +1,4 @@
-import Timer from "../sale-timer/Timer";
+import Timer from "../body/sale-timer/Timer";
 import { Button } from "react-bootstrap";
 import React from "react";
 import "./product.sass";
@@ -13,6 +13,7 @@ const ProductBanner = () => {
       <Button className="product-banner-button">Buy now!</Button>
 
       <img src={productImage} alt="product-img"></img>
+      <div className="box-shadow-container"></div>
     </div>
   );
 };

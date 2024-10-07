@@ -1,9 +1,9 @@
 import { Image } from "react-bootstrap";
 import Carousel from "react-bootstrap/Carousel";
-import Img1 from "../../assets/1.jpg";
-import Img2 from "../../assets/2.jpg";
+import Img1 from "../../../assets/1.jpg";
+import Img2 from "../../../assets/2.jpg";
 import { useState } from "react";
-import "./content.sass";
+import "../content.sass";
 const Slider = () => {
   const [index, setIndex] = useState(0);
 

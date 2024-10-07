@@ -1,6 +1,6 @@
 import { useRef } from "react";
-import ContentTitle from "../../content-title/ContentTitle";
-import SaleTimer from "../../sale-timer/SaleTimer";
+import ContentTitle from "../../body/content-title/ContentTitle";
+import SaleTimer from "../../body/sale-timer/SaleTimer";
 import "../../content.sass";
 import SalesSlider from "../SalesSlider";
 import React from "react";

@@ -1,9 +1,8 @@
 import React, { useRef } from "react";
-import ContentTitle from "../../content-title/ContentTitle";
-import SaleTimer from "../../sale-timer/SaleTimer";
+import ContentTitle from "../../body/content-title/ContentTitle";
+import SaleTimer from "../../body/sale-timer/SaleTimer";
 import "../../content.sass";
 import OurProductsSlider from "../OurProductsSlider";
-import { Button } from "react-bootstrap";
 const OurProductContainer = () => {
   let ourProductRef = useRef();
 
