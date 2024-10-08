@@ -1,5 +1,6 @@
 .footer-information
     >div
+        margin-top: 1.5rem
         height: auto
         display: flex
         flex-direction: column
@@ -8,6 +9,7 @@
         input
             background-color: black
             height: 48px
+
 .fifth-column>p
     color: #dfdfdf
     font-size: 14px
@@ -22,6 +24,7 @@
         img
             height: auto
             width: -webkit-fill-available
+            width: -moz-available
     .appstore-chplay-code-img
         gap: 4px
         width: 60%
@@ -29,11 +32,29 @@
             cursor: pointer
             height: auto
             width: -webkit-fill-available
-
+            width: -moz-available
 .first-column
     input
+
+        margin-bottom: 1.5rem
         &::placeholder
             color: #fff
-
 .information-icon
     cursor: pointer
+
+.footer-colunm
+    margin: auto
+hr
+    display: none
+@media screen and (max-width: 1200px)
+    .foot-container
+        padding: 50px 10% !important
+    .footer-information
+        flex-direction: column !important
+        flex-wrap: nowrap !important
+
+        >div
+            width: 217px
+    hr
+        display: block
+        border: 1px solid #fff

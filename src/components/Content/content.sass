@@ -78,6 +78,8 @@
                             height: 100%
                             position: relative
                             background-color: black
+                            img
+                                max-width: 100%
                             div
                                 position: absolute
                                 width: 50%
@@ -167,7 +169,7 @@
         margin-top: 120px
         padding: 100px 10% 0
         width: 100%
-        height: 480px
+        min-height: 480px
         background-color: #000
 
 .App-container .header-container .container-fluid .navbar-nav .active
@@ -191,6 +193,7 @@ hr
 .carousel-item
     img
         width: 100%
-@media screen and (max-width: 768px)
-    .second-column
-        display: none !important
+@media screen and (max-width: 767px)
+    .new-arrival-product
+        .second-column
+            display: none !important

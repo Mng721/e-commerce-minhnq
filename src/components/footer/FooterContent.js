@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 const FooterContent = () => {
   return (
     <>
-      <div className="footer-information d-flex flex-row justify-content-between no-wrap">
+      <div className="footer-information d-flex flex-row justify-content-between">
         <div className="first-column footer-colunm">
           <h2 className="text-light">Exclusive</h2>
           <h4 className="text-light">Subcribe</h4>
@@ -24,6 +24,8 @@ const FooterContent = () => {
             placeholder="Enter your email"
           />
         </div>
+        <hr />
+
         <div className="second-column footer-colunm">
           <h4 className="text-light pb-2">Support</h4>
           <p className="text-light">
@@ -32,6 +34,7 @@ const FooterContent = () => {
           <p className="text-light">exclusive@gmail.com</p>
           <p className="text-light">+888888-8888888-8888888</p>
         </div>
+        <hr />
         <div className="third-column footer-colunm">
           <h4 className="text-light pb-2">Account</h4>
           <p className="text-light">Login / Register</p>
@@ -39,6 +42,8 @@ const FooterContent = () => {
           <p className="text-light">Wishlist</p>
           <p className="text-light">Shop</p>
         </div>
+        <hr />
+
         <div className="forth-column footer-colunm">
           <h4 className="text-light pb-2">Quick link</h4>
           <p className="text-light">
@@ -49,6 +54,7 @@ const FooterContent = () => {
           <p className="text-light">FAQ</p>
           <p className="text-light">Contact</p>
         </div>
+        <hr />
         <div className="fifth-column footer-colunm">
           <h4 className="text-light pb-2">Download App</h4>
           <p>Save 3$ with App New User Only</p>
