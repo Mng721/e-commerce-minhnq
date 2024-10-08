@@ -65,10 +65,10 @@ const OurProductsSlider = forwardRef((props, ref) => {
           <Cart />
         </div>
         <div>
-          <Cart />
+          <Cart reviewCount={1000} rating={3.5} />
         </div>
         <div>
-          <Cart />
+          <Cart reviewCount={200} rating={4.2} sale={30} />
         </div>
         <div>
           <Cart />
@@ -83,7 +83,7 @@ const OurProductsSlider = forwardRef((props, ref) => {
           <Cart />
         </div>
         <div>
-          <Cart sale={"50"} />
+          <Cart sale={"50"} rating={3.5} />
         </div>
         <div>
           <Cart listColor={["#cf639e", "#6b63cf", "#3c3a5a"]} />
@@ -101,7 +101,11 @@ const OurProductsSlider = forwardRef((props, ref) => {
           <Cart listColor={listColor} />
         </div>
         <div>
-          <Cart listColor={["#7dcf63", "#cfb063", "#b363cf"]} newItem={true} />
+          <Cart
+            listColor={["#7dcf63", "#cfb063", "#b363cf"]}
+            newItem={true}
+            rating={5}
+          />
         </div>
         <div>
           <Cart newItem={true} />
@@ -110,7 +114,12 @@ const OurProductsSlider = forwardRef((props, ref) => {
           <Cart />
         </div>
         <div>
-          <Cart listColor={["#3a5a3a", "#a9bba9", "#aec251"]} />
+          <Cart
+            listColor={["#3a5a3a", "#a9bba9", "#aec251"]}
+            newItem={true}
+            rating={5}
+            reviewCount={1}
+          />
         </div>
         <div>
           <Cart
@@ -119,10 +128,10 @@ const OurProductsSlider = forwardRef((props, ref) => {
           />
         </div>
         <div>
-          <Cart />
+          <Cart reviewCount={100} rating={4} />
         </div>
         <div>
-          <Cart newItem={true} />
+          <Cart newItem={true} reviewCount={10} rating={4} />
         </div>
       </Slider>
     </div>

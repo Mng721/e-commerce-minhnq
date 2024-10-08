@@ -3,11 +3,11 @@ import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Main from "./Main";
-import IndexPage from "./components/Content/IndexPage";
-import ContactPage from "./components/Content/ContactPage";
+import IndexPage from "./components/page/IndexPage";
+import ContactPage from "./components/page/signin/ContactPage";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import AboutPage from "./components/Content/AboutPage";
+import AboutPage from "./components/page/AboutPage";
 import SignInPage from "./components/page/signin/SignInPage";
 import RegisterPage from "./components/page/register/RegisterPage";
 

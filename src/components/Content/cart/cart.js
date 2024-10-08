@@ -11,6 +11,7 @@ const Cart = ({
   rating = 4.5,
   price = "160$",
   salePrice = "120$",
+  reviewCount = 55,
 }) => {
   const [colorPicked, setColorPicked] = useState(listColor ? listColor[0] : "");
   const handleColorPicked = (color) => {
@@ -49,7 +50,7 @@ const Cart = ({
               readOnly
             />
           </div>
-          <div className="review-number">(88)</div>
+          <div className="review-number">({reviewCount})</div>
         </div>
       )}
       {!sale && (
@@ -64,7 +65,7 @@ const Cart = ({
                 readOnly
               />
             </div>
-            <div className="review-number">(88)</div>
+            <div className="review-number">({reviewCount})</div>
           </div>
         </div>
       )}
