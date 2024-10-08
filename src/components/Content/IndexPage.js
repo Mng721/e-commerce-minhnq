@@ -109,7 +109,7 @@ const IndexPage = () => {
           </div>
         </div>
         <div className="guarantee-banner ">
-          <div className="container d-flex flex-row justify-content-around w-100">
+          <div className="container d-flex flex-row justify-content-around w-100 flex-wrap">
             <GuaranteeBanner />
             <CustomerServiceBanner />
             <MoneyBack />

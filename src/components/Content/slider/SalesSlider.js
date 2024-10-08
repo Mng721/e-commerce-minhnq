@@ -11,6 +11,39 @@ const SalesSlider = forwardRef((props, ref) => {
     slidesToShow: 6,
     arrows: false,
     swipeToSlide: true,
+    responsive: [
+      {
+        breakpoint: 1780,
+        settings: {
+          slidesToShow: 5,
+        },
+      },
+      {
+        breakpoint: 1500,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
   return (
     <div className="sales-slider-container">
