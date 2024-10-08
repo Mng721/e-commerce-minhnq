@@ -20,6 +20,9 @@
         font-size: 20px
         padding: 8px 0 12px
         color: #fff
+        text-transform: capitalize
+        overflow: hidden
+        text-wrap: nowrap
         .shop-link
             font-weight: 500
             color: #fff
@@ -32,15 +35,20 @@
         padding: 12px 10% 12px
         border-bottom: 1px solid #ccc
     .navbar-brand
+        width: 20%
         font-weight: 700
         font-size: 32px
     .navbar-nav
+        flex-grow: 1
         width: auto
-        padding: 0 180px
+        display: flex
+        flex-direction: row
+        justify-content: space-around
         .nav-link
+            width: auto
             font-weight: 500
-            margin-right: 50px
             font-size: 20px
+            margin: 0
         .active
             color: #d60b0b
     .d-flex
@@ -89,3 +97,6 @@
                 margin-left: 16px
                 font-size: 20px
                 width: 100%
+
+.search-input
+    width: 12vw !important

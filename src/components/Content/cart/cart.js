@@ -14,7 +14,6 @@ const Cart = ({
 }) => {
   const [colorPicked, setColorPicked] = useState(listColor ? listColor[0] : "");
   const handleColorPicked = (color) => {
-    console.log(color);
     setColorPicked(color);
   };
   return (
@@ -79,14 +78,11 @@ const Cart = ({
                 style={{ backgroundColor: `${color}` }}
                 onClick={() => handleColorPicked(color)}
               >
-                {
-                  (console.log(colorPicked === color),
-                  colorPicked === color && (
-                    <div className="border-color-picked d-flex justify-content-center align-item-center">
-                      <div></div>
-                    </div>
-                  ))
-                }
+                {colorPicked === color && (
+                  <div className="border-color-picked d-flex justify-content-center align-item-center">
+                    <div></div>
+                  </div>
+                )}
               </div>
             );
           })}

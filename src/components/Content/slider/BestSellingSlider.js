@@ -11,6 +11,33 @@ const BestSellingSlider = () => {
     slidesToShow: 5,
     swipeToSlide: true,
     arrows: false,
+    responsive: [
+      {
+        breakpoint: 1650,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 1350,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 1000,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+
+      {
+        breakpoint: 680,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
     // variableWidth: true,
   };
   return (

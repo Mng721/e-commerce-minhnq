@@ -3,53 +3,62 @@
     background-color: black
     height: 800px
     position: relative
-    .product-banner-title
-        position: absolute
-        left: 5%
-        top: 12%
-        color: #44d657
-        font-weight: 500
-        font-size: 32px
-    .product-banner-slogan
-        position: absolute
-        left: 5%
-        top: 24%
-        max-width: 40%
-        color: #fff
-        font-weight: 500
-        font-size: 70px
-    .timer
-        margin: 0
-        position: absolute
-        background-color: #00000000
-        bottom: 30%
-        left: 5%
-    .product-banner-button
-        position: absolute
-        background-color: #44d657
-        bottom: 12%
-        left: 5%
-    img
-        z-index: 2
-        width: 600px
-        height: auto
-        margin: 0
-        position: absolute
-        top: 50%
-        -ms-transform: translateY(-50%)
-        transform: translateY(-50%)
-        right: 10%
-    .box-shadow-container
-        width: 350px
-        height: 80px
-        border-radius: 50%
-        position: absolute
-        top: 52%
-        -ms-transform: translateY(-50%)
-        transform: translateY(-50%)
-        right: 18%
-        z-index: 0
-        box-shadow: 0px 0px 150px 150px #b1b1b1
+    display: flex
+    flex-direction: row
+    .information-container
+        flex-grow: 2
+        position: relative
+        .product-banner-title
+            position: absolute
+            left: 5%
+            top: 12%
+            color: #44d657
+            font-weight: 500
+            font-size: 32px
+        .product-banner-slogan
+            position: absolute
+            left: 5%
+            top: 24%
+            max-width: 100%
+            color: #fff
+            font-weight: 500
+            font-size: 70px
+        .timer
+            margin: 0
+            position: absolute
+            background-color: #00000000
+            bottom: 30%
+            left: 5%
+        .product-banner-button
+            position: absolute
+            background-color: #44d657
+            bottom: 12%
+            left: 5%
+    .img-container
+        flex-grow: 3
+        position: relative
+        img
+            z-index: 2
+            width: 80%
+            height: auto
+            margin: 0
+            position: absolute
+            top: 50%
+            -ms-transform: translateY(-50%)
+            transform: translateY(-50%)
+            right: 10%
+        .box-shadow-container
+            width: 60%
+            height: 5%
+            border-radius: 50%
+            position: absolute
+            top: 52%
+            -ms-transform: translateY(-50%)
+            transform: translateY(-50%)
+            right: 20%
+            z-index: 0
+            box-shadow: 0px 0px 150px 150px #b1b1b1
+
 .first-column
     position: relative
     img

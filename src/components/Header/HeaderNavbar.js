@@ -51,7 +51,7 @@ const HeaderNavbar = () => {
                 <Form.Control
                   type="search"
                   placeholder="What are you loking for?"
-                  className="me-2"
+                  className="me-2 search-input"
                   aria-label="Search"
                 />
               </InputGroup>
