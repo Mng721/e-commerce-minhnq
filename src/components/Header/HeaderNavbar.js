@@ -7,20 +7,26 @@ import { Link, NavLink } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DropDownContent from "./DropDownContent";
 import { searchProduct } from "../../service/apiService";
-
+import { useDebounce } from "use-debounce";
+import SearchDropDownItem from "./SearchDropDownItem";
+import SearchDropDownContent from "./SearchDropDownContent";
 const HeaderNavbar = () => {
   const [open, setOpen] = useState("");
+  const [searchDropbarOpen, setSearchDropbarOpen] = useState("");
   const [searchParam, setSearchParam] = useState("");
+  const [listSearchProduct, setListSearchProduct] = useState("");
+  const [debouncedValue] = useDebounce(searchParam, 500);
   const handleToggleDropdown = () => {
     setOpen(!open);
   };
+
   const handleSearchSubmit = async (event) => {
     event.preventDefault();
     try {
-      let res = await searchProduct(searchParam);
+      let res = await searchProduct(debouncedValue);
       if (res.status === 200) {
         console.log(res);
       }
@@ -28,6 +34,21 @@ const HeaderNavbar = () => {
       console.log(e);
     }
   };
+  const handleSearch = async (searchValue) => {
+    try {
+      let res = await searchProduct(searchValue);
+      if (res.status === 200) {
+        console.log(res);
+        setListSearchProduct(res.data);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    handleSearch(debouncedValue);
+  }, [debouncedValue]);
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary">
@@ -56,38 +77,36 @@ const HeaderNavbar = () => {
               </NavLink>
             </Nav>
             <Form className="d-flex" onSubmit={handleSearchSubmit}>
-              {/* <InputGroup onSubmit={handleSearchSubmit}>
+              <InputGroup onSubmit={handleSearchSubmit}>
                 <InputGroup.Text>
                   <IoSearch />
                 </InputGroup.Text>
 
                 <input
-                  type="text"
-                  className="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                  placeholder="Enter email"
+                  type="search"
+                  className="search-input"
+                  id="search-product"
+                  aria-describedby="search"
+                  placeholder="What are you loking for?"
                   value={searchParam}
                   onChange={(event) => {
                     setSearchParam(event.target.value);
                   }}
+                  onSubmit={() => {
+                    console.log(searchParam);
+                  }}
+                  onFocus={() => setSearchDropbarOpen(true)}
+                  onBlur={() => setSearchDropbarOpen(false)}
                 />
-              </InputGroup> */}
+              </InputGroup>
 
-              <input
-                type="search"
-                className="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                placeholder="Enter email"
-                value={searchParam}
-                onChange={(event) => {
-                  setSearchParam(event.target.value);
-                }}
-                onSubmit={() => {
-                  console.log(searchParam);
-                }}
-              />
+              {listSearchProduct.length > 0 && (
+                <SearchDropDownContent
+                  listSearchProduct={listSearchProduct}
+                  open={searchDropbarOpen}
+                />
+              )}
+
               <CiHeart size={"2em"} className="icon heart-icon" />
               <IoCartOutline size={"2em"} className="icon cart-icon" />
               <div className="drop-down">
