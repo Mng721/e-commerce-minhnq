@@ -8,10 +8,12 @@ const Cart = ({
   sale,
   newItem,
   listColor,
-  rating = 4.5,
+  rating,
   price = "160$",
   salePrice = "120$",
   reviewCount = 55,
+  name = "HAVIT HV-G92 Gamepad",
+  imgSrc,
 }) => {
   const [colorPicked, setColorPicked] = useState(listColor ? listColor[0] : "");
   const handleColorPicked = (color) => {
@@ -20,7 +22,7 @@ const Cart = ({
   return (
     <div className="cart-item-container mx-auto">
       <div className="img-container">
-        <img src={imgPng} alt="product-image"></img>
+        <img src={imgSrc ? imgSrc : imgPng} alt="product-image"></img>
         {newItem && <div className="new-item item-tag">New</div>}
         {sale && <div className="sale-item item-tag">{sale}%</div>}
         <div className="add-to-card-text">Add to card</div>
@@ -33,39 +35,47 @@ const Cart = ({
           </div>
         </div>
       </div>
-      <div className="item-name">HAVIT HV-G92 Gamepad</div>
+      <div className="item-name">{name}</div>
       {sale && (
         <div className="price-container">
-          <div className="sale-price">{salePrice}</div>
-          <div className="price">{price}</div>
+          <div className="sale-price">{salePrice}$</div>
+          <div className="price">{price}$</div>
         </div>
       )}
       {sale && (
         <div className="review">
-          <div className="review-star d-flex flex-row align-item-center">
-            <Rating
-              name="half-rating-read"
-              defaultValue={rating}
-              precision={0.5}
-              readOnly
-            />
-          </div>
-          <div className="review-number">({reviewCount})</div>
+          {rating && (
+            <>
+              <div className="review-star">
+                <Rating
+                  name="half-rating-read"
+                  defaultValue={rating}
+                  precision={0.5}
+                  readOnly
+                />
+              </div>
+              <div className="review-number">({reviewCount})</div>
+            </>
+          )}
         </div>
       )}
       {!sale && (
         <div className="not-on-sale">
           <div className="price-and-stars d-flex flex-row">
-            <div className="price">{price}</div>
-            <div className="review-star">
-              <Rating
-                name="half-rating-read"
-                defaultValue={rating}
-                precision={0.5}
-                readOnly
-              />
-            </div>
-            <div className="review-number">({reviewCount})</div>
+            <div className="price">{price}$</div>
+            {rating && (
+              <>
+                <div className="review-star">
+                  <Rating
+                    name="half-rating-read"
+                    defaultValue={rating}
+                    precision={0.5}
+                    readOnly
+                  />
+                </div>
+                <div className="review-number">({reviewCount})</div>
+              </>
+            )}
           </div>
         </div>
       )}

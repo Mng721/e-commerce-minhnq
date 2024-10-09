@@ -34,9 +34,6 @@ const IndexPage = () => {
       </div>
       <div className="body-content">
         <SalesSliderContainer />
-        <div className="btn-view">
-          <ViewAllProduct text={"View all product"} />
-        </div>
         <hr />
         <CategoryItemSliderContainer />
         <hr></hr>

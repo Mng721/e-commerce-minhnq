@@ -9,11 +9,18 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useState } from "react";
 import DropDownContent from "./DropDownContent";
+import { searchProduct } from "../../service/apiService";
 
 const HeaderNavbar = () => {
-  const [open, setOpen] = useState();
+  const [open, setOpen] = useState("");
+  const [searchParam, setSearchParam] = useState("");
   const handleToggleDropdown = () => {
     setOpen(!open);
+  };
+  const handleSearchSubmit = async () => {
+    console.log(searchParam);
+    let res = await searchProduct(searchParam);
+    console.log(res);
   };
   return (
     <>
@@ -43,16 +50,21 @@ const HeaderNavbar = () => {
               </NavLink>
             </Nav>
             <Form className="d-flex">
-              <InputGroup>
+              <InputGroup onSubmit={handleSearchSubmit}>
                 <InputGroup.Text>
                   <IoSearch />
                 </InputGroup.Text>
 
-                <Form.Control
-                  type="search"
-                  placeholder="What are you loking for?"
-                  className="me-2 search-input"
-                  aria-label="Search"
+                <input
+                  type="text"
+                  className="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter email"
+                  value={searchParam}
+                  onChange={(event) => {
+                    setSearchParam(event.target.value);
+                  }}
                 />
               </InputGroup>
 
