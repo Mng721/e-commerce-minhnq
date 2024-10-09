@@ -10,7 +10,7 @@ import {
   getProductPaging,
 } from "../../../../service/apiService";
 const SalesSliderContainer = () => {
-  const ITEM_LIMIT = 6;
+  const ITEM_LIMIT = 10;
   const salesSliderRef = useRef();
   const [listProduct, setListProduct] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -31,15 +31,17 @@ const SalesSliderContainer = () => {
     let nextPage = currentPage + 1;
     setCurrentPage(nextPage);
     if (
-      nextPage * ITEM_LIMIT <= listProduct.length ||
+      currentPage * ITEM_LIMIT < listProduct.length ||
       listProduct.length >= 100
     ) {
       salesSliderRef?.current?.slickNext();
       return;
     }
+
     let res = await getProductPaging(nextPage, ITEM_LIMIT);
     let newList = [...listProduct, ...res.data];
     setListProduct(newList);
+    salesSliderRef?.current?.slickNext();
     console.log(newList);
   };
   const handleFetchPagingProduct = async () => {

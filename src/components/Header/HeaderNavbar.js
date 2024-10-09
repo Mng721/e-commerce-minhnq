@@ -17,10 +17,16 @@ const HeaderNavbar = () => {
   const handleToggleDropdown = () => {
     setOpen(!open);
   };
-  const handleSearchSubmit = async () => {
-    console.log(searchParam);
-    let res = await searchProduct(searchParam);
-    console.log(res);
+  const handleSearchSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      let res = await searchProduct(searchParam);
+      if (res.status === 200) {
+        console.log(res);
+      }
+    } catch (e) {
+      console.log(e);
+    }
   };
   return (
     <>
@@ -49,8 +55,8 @@ const HeaderNavbar = () => {
                 <div>Sign in</div>
               </NavLink>
             </Nav>
-            <Form className="d-flex">
-              <InputGroup onSubmit={handleSearchSubmit}>
+            <Form className="d-flex" onSubmit={handleSearchSubmit}>
+              {/* <InputGroup onSubmit={handleSearchSubmit}>
                 <InputGroup.Text>
                   <IoSearch />
                 </InputGroup.Text>
@@ -66,8 +72,22 @@ const HeaderNavbar = () => {
                     setSearchParam(event.target.value);
                   }}
                 />
-              </InputGroup>
+              </InputGroup> */}
 
+              <input
+                type="search"
+                className="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Enter email"
+                value={searchParam}
+                onChange={(event) => {
+                  setSearchParam(event.target.value);
+                }}
+                onSubmit={() => {
+                  console.log(searchParam);
+                }}
+              />
               <CiHeart size={"2em"} className="icon heart-icon" />
               <IoCartOutline size={"2em"} className="icon cart-icon" />
               <div className="drop-down">
