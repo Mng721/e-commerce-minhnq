@@ -38,7 +38,6 @@ const HeaderNavbar = () => {
     try {
       let res = await searchProduct(searchValue);
       if (res.status === 200) {
-        console.log(res);
         setListSearchProduct(res.data);
       }
     } catch (e) {

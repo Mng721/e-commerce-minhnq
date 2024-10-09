@@ -31,14 +31,11 @@ const SalesSliderContainer = () => {
   const handleNextSlide = async () => {
     let nextPage = currentPage + 1;
     setCurrentPage(nextPage);
-    console.log(currentPage * ITEM_LIMIT, listProduct.length);
     if (
-      currentPage * ITEM_LIMIT <= listProduct.length ||
+      currentPage * ITEM_LIMIT < listProduct.length ||
       listProduct.length >= 100
     ) {
       salesSliderRef?.current?.slickNext();
-      console.log(listProduct);
-
       return;
     }
 
@@ -46,7 +43,6 @@ const SalesSliderContainer = () => {
     let newList = [...listProduct, ...res.data];
     setListProduct(newList);
     salesSliderRef?.current?.slickNext();
-    console.log(newList);
   };
   const handleFetchPagingProduct = async () => {
     let res = await getProductPaging(currentPage, ITEM_LIMIT);
