@@ -23,6 +23,7 @@ const HeaderNavbar = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [hasResults, setHasResults] = useState("");
 
+  const element = document.getElementById("scrollableDiv");
   const handleToggleDropdown = () => {
     setOpen(!open);
   };
@@ -43,7 +44,7 @@ const HeaderNavbar = () => {
       let res = await searchProduct(searchValue, currentPage);
       if (res.status === 200) {
         setHasResults(true);
-        if (searchValue && currentPage === 1) {
+        if (currentPage === 1) {
           setListSearchProduct(res.data);
         } else {
           setListSearchProduct([...listSearchProduct, ...res.data]);
@@ -123,9 +124,8 @@ const HeaderNavbar = () => {
                   }}
                   onFocus={setFocus}
                   onBlur={() => {
-                    setListSearchProduct("");
-                    setCurrentPage(0);
                     setSearchDropbarOpen(false);
+                    element.scrollTop = 0;
                   }}
                 />
               </InputGroup>
