@@ -1,18 +1,35 @@
 import React from "react";
 import SearchDropDownItem from "./SearchDropDownItem";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const SearchDropDownContent = (props) => {
-  const { listSearchProduct, open } = props;
+  const { listSearchProduct, open, fetchMoreItem, hasMore } = props;
+
   return (
     <div
       className={`search-dropdown-content ${
         open ? "search-dropdown-open" : null
       } d-flex flex-column gap-1`}
+      id="scrollableDiv"
     >
-      {console.log(listSearchProduct)}
-      {listSearchProduct.map((item, index) => {
-        return <SearchDropDownItem item={item} key={`search-item-${index}`} />;
-      })}
+      <InfiniteScroll
+        dataLength={listSearchProduct.length} //This is important field to render the next data
+        next={fetchMoreItem}
+        hasMore={hasMore}
+        loader={<h4>Loading...</h4>}
+        scrollableTarget="scrollableDiv"
+        endMessage={
+          <p style={{ textAlign: "center" }}>
+            <b>Yay! You have seen it all</b>
+          </p>
+        }
+      >
+        {listSearchProduct.map((item, index) => {
+          return (
+            <SearchDropDownItem item={item} key={`search-item-${index}`} />
+          );
+        })}
+      </InfiniteScroll>
     </div>
   );
 };

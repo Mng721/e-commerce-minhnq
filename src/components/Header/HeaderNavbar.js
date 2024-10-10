@@ -11,43 +11,61 @@ import { useEffect, useState } from "react";
 import DropDownContent from "./DropDownContent";
 import { searchProduct } from "../../service/apiService";
 import { useDebounce } from "use-debounce";
-import SearchDropDownItem from "./SearchDropDownItem";
 import SearchDropDownContent from "./SearchDropDownContent";
+
 const HeaderNavbar = () => {
   const [open, setOpen] = useState("");
   const [searchDropbarOpen, setSearchDropbarOpen] = useState("");
   const [searchParam, setSearchParam] = useState("");
   const [listSearchProduct, setListSearchProduct] = useState("");
   const [debouncedValue] = useDebounce(searchParam, 500);
+  const [hasMore, setHasMore] = useState(true);
+  const [currentPage, setCurrentPage] = useState(0);
+
   const handleToggleDropdown = () => {
     setOpen(!open);
   };
 
+  //fetch more data for search bar
+  const fetchMoreItem = () => {
+    setCurrentPage(currentPage + 1);
+  };
+
+  //
   const handleSearchSubmit = async (event) => {
     event.preventDefault();
-    try {
-      let res = await searchProduct(debouncedValue);
-      if (res.status === 200) {
-        console.log(res);
-      }
-    } catch (e) {
-      console.log(e);
-    }
   };
+
+  //call khi có search value
   const handleSearch = async (searchValue) => {
     try {
-      let res = await searchProduct(searchValue);
+      let res = await searchProduct(searchValue, currentPage);
       if (res.status === 200) {
-        setListSearchProduct(res.data);
+        setListSearchProduct([...listSearchProduct, ...res.data]);
+      }
+
+      if (res.data.length < 10) {
+        setHasMore(false);
+        return;
       }
     } catch (e) {
+      setListSearchProduct("");
       console.log(e);
     }
   };
 
+  //call khi focus vào input
+  const setFocus = () => {
+    setCurrentPage(1);
+    setHasMore(true);
+    setListSearchProduct("");
+    setSearchDropbarOpen(true);
+  };
+
   useEffect(() => {
     handleSearch(debouncedValue);
-  }, [debouncedValue]);
+  }, [currentPage, debouncedValue]);
+
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary">
@@ -89,13 +107,17 @@ const HeaderNavbar = () => {
                   placeholder="What are you loking for?"
                   value={searchParam}
                   onChange={(event) => {
+                    setListSearchProduct("");
                     setSearchParam(event.target.value);
                   }}
                   onSubmit={() => {
                     console.log(searchParam);
                   }}
-                  onFocus={() => setSearchDropbarOpen(true)}
-                  onBlur={() => setSearchDropbarOpen(false)}
+                  onFocus={setFocus}
+                  onBlur={() => {
+                    setCurrentPage(0);
+                    setSearchDropbarOpen(false);
+                  }}
                 />
               </InputGroup>
 
@@ -103,11 +125,17 @@ const HeaderNavbar = () => {
                 <SearchDropDownContent
                   listSearchProduct={listSearchProduct}
                   open={searchDropbarOpen}
+                  hasMore={hasMore}
+                  fetchMoreItem={fetchMoreItem}
                 />
               )}
 
               <CiHeart size={"2em"} className="icon heart-icon" />
-              <IoCartOutline size={"2em"} className="icon cart-icon" />
+              <IoCartOutline
+                size={"2em"}
+                className="icon cart-icon"
+                onClick={fetchMoreItem}
+              />
               <div className="drop-down">
                 <MdAccountCircle
                   size={"2em"}
