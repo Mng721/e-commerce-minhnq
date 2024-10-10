@@ -140,11 +140,7 @@ const HeaderNavbar = () => {
               )}
 
               <CiHeart size={"2em"} className="icon heart-icon" />
-              <IoCartOutline
-                size={"2em"}
-                className="icon cart-icon"
-                onClick={fetchMoreItem}
-              />
+              <IoCartOutline size={"2em"} className="icon cart-icon" />
               <div className="drop-down">
                 <MdAccountCircle
                   size={"2em"}
