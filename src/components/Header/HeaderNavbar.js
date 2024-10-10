@@ -21,7 +21,6 @@ const HeaderNavbar = () => {
   const [debouncedValue] = useDebounce(searchParam, 500);
   const [hasMore, setHasMore] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const [hasResults, setHasResults] = useState("");
 
   const element = document.getElementById("scrollableDiv");
   const handleToggleDropdown = () => {
@@ -43,7 +42,6 @@ const HeaderNavbar = () => {
     try {
       let res = await searchProduct(searchValue, currentPage);
       if (res.status === 200) {
-        setHasResults(true);
         if (currentPage === 1) {
           setListSearchProduct(res.data);
         } else {
@@ -117,6 +115,8 @@ const HeaderNavbar = () => {
                   value={searchParam}
                   onChange={(event) => {
                     setCurrentPage(1);
+                    element.scrollTop = 0;
+
                     setSearchParam(event.target.value);
                   }}
                   onSubmit={() => {
@@ -135,7 +135,6 @@ const HeaderNavbar = () => {
                 open={searchDropbarOpen}
                 hasMore={hasMore}
                 fetchMoreItem={fetchMoreItem}
-                hasResults={hasResults}
               />
 
               <CiHeart size={"2em"} className="icon heart-icon" />

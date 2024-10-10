@@ -12,7 +12,6 @@ const SearchDropDownContent = (props) => {
       } d-flex flex-column gap-1`}
       id="scrollableDiv"
     >
-      {console.log(listSearchProduct.length)}
       {listSearchProduct.length > 0 ? (
         <InfiniteScroll
           dataLength={listSearchProduct.length} //This is important field to render the next data
