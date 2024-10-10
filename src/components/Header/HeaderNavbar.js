@@ -38,11 +38,11 @@ const HeaderNavbar = () => {
   };
 
   //call khi có search value
-  const handleSearch = async (searchValue) => {
+  const handleSearch = async (searchValue, page) => {
     try {
-      let res = await searchProduct(searchValue, currentPage);
+      let res = await searchProduct(searchValue, page);
       if (res.status === 200) {
-        if (currentPage === 1) {
+        if (page === 1) {
           setListSearchProduct(res.data);
         } else {
           setListSearchProduct([...listSearchProduct, ...res.data]);
@@ -70,7 +70,7 @@ const HeaderNavbar = () => {
   };
 
   useEffect(() => {
-    handleSearch(debouncedValue);
+    handleSearch(debouncedValue, currentPage);
   }, [currentPage, debouncedValue]);
 
   return (
@@ -107,8 +107,8 @@ const HeaderNavbar = () => {
                 </InputGroup.Text>
 
                 <input
-                  type="search"
-                  className="search-input"
+                  type="text"
+                  className="search-input form-control"
                   id="search-product"
                   aria-describedby="search"
                   placeholder="What are you loking for?"
