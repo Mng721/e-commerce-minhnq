@@ -20,7 +20,8 @@ const HeaderNavbar = () => {
   const [listSearchProduct, setListSearchProduct] = useState("");
   const [debouncedValue] = useDebounce(searchParam, 500);
   const [hasMore, setHasMore] = useState(true);
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [hasResults, setHasResults] = useState("");
 
   const handleToggleDropdown = () => {
     setOpen(!open);
@@ -41,6 +42,7 @@ const HeaderNavbar = () => {
     try {
       let res = await searchProduct(searchValue, currentPage);
       if (res.status === 200) {
+        setHasResults(true);
         if (searchValue && currentPage === 1) {
           setListSearchProduct(res.data);
         } else {
@@ -57,16 +59,15 @@ const HeaderNavbar = () => {
       }
     } catch (e) {
       setListSearchProduct("");
-      console.log(e);
     }
   };
 
   //call khi focus vào input
   const setFocus = () => {
+    setSearchDropbarOpen(true);
+
     setCurrentPage(1);
     setHasMore(true);
-    setListSearchProduct("");
-    setSearchDropbarOpen(true);
   };
 
   useEffect(() => {
@@ -115,7 +116,6 @@ const HeaderNavbar = () => {
                   value={searchParam}
                   onChange={(event) => {
                     setCurrentPage(1);
-                    setListSearchProduct("");
                     setSearchParam(event.target.value);
                   }}
                   onSubmit={() => {
@@ -130,14 +130,13 @@ const HeaderNavbar = () => {
                 />
               </InputGroup>
 
-              {listSearchProduct.length > 0 && (
-                <SearchDropDownContent
-                  listSearchProduct={listSearchProduct}
-                  open={searchDropbarOpen}
-                  hasMore={hasMore}
-                  fetchMoreItem={fetchMoreItem}
-                />
-              )}
+              <SearchDropDownContent
+                listSearchProduct={listSearchProduct}
+                open={searchDropbarOpen}
+                hasMore={hasMore}
+                fetchMoreItem={fetchMoreItem}
+                hasResults={hasResults}
+              />
 
               <CiHeart size={"2em"} className="icon heart-icon" />
               <IoCartOutline size={"2em"} className="icon cart-icon" />

@@ -104,12 +104,13 @@
     border-top-right-radius: 8px
     border-bottom-right-radius: 8px
 .search-dropdown-content
+    border: 1px solid #dfdfdf
     position: absolute
     max-height: 40vh
     border-radius: 4px
     opacity: 0
     overflow: scroll
-    top: 60px
+    top: 58px
     width: 14.2vw
 
     -ms-overflow-style: none
@@ -134,11 +135,25 @@
         overflow: hidden
         height: fit-content
         color: black
+.search-dropdown-error
 
+    padding: 8px
+    width: 100%
+    img
+        width: 20%
+        height: auto
+    div
+        overflow: hidden
+        height: fit-content
+        color: black
 .search-dropdown-item:hover
     cursor: pointer
     filter: brightness(0.6)
     background-color: #e6e6e6
+.search-dropdown-error:hover
+    cursor: default
+    background-color: #fff
+
 @media screen and (max-width: 1350px)
     .top-header
         #dropdown-basic-button
