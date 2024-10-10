@@ -41,11 +41,18 @@ const HeaderNavbar = () => {
     try {
       let res = await searchProduct(searchValue, currentPage);
       if (res.status === 200) {
-        setListSearchProduct([...listSearchProduct, ...res.data]);
+        if (searchValue && currentPage === 1) {
+          setListSearchProduct(res.data);
+        } else {
+          setListSearchProduct([...listSearchProduct, ...res.data]);
+        }
       }
 
       if (res.data.length < 10) {
         setHasMore(false);
+        return;
+      } else {
+        setHasMore(true);
         return;
       }
     } catch (e) {
@@ -107,6 +114,7 @@ const HeaderNavbar = () => {
                   placeholder="What are you loking for?"
                   value={searchParam}
                   onChange={(event) => {
+                    setCurrentPage(1);
                     setListSearchProduct("");
                     setSearchParam(event.target.value);
                   }}
@@ -115,6 +123,7 @@ const HeaderNavbar = () => {
                   }}
                   onFocus={setFocus}
                   onBlur={() => {
+                    setListSearchProduct("");
                     setCurrentPage(0);
                     setSearchDropbarOpen(false);
                   }}
